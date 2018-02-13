@@ -249,6 +249,9 @@ void matrix_scan_user(void) {
         case 3:
             ergodox_board_led_on();
             break;
+        case 4:
+            ergodox_board_led_on();
+            break;
         default:
             // none
             break;
