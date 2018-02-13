@@ -6,7 +6,8 @@
 #define BASE 0 // default layer
 #define QW 1 // qwerty
 #define SYMB 2 // symbols
-#define NUM 3 // media keys
+#define NUM 3 // numkkeys
+#define HC 4 // Disable certain keys to force use of thumb cluster thumb cluster
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_ESC,         KC_1,        KC_2,     KC_3,   KC_4,   KC_5,   KC_LSFT,
+        KC_ESC,         KC_1,        KC_2,     KC_3,   KC_4,   KC_5,   TG(HC),
         KC_TAB,         KC_Q,        KC_D,     KC_R,   KC_W,   KC_B,   KC_GRV,
         CTL_T(KC_ESC),  KC_A,        KC_S,     KC_H,   KC_T,   KC_G,
         KC_LSFT,        KC_Z,        KC_X,     KC_M,   KC_C,   KC_V,   KC_EQL,
@@ -103,18 +104,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [SYMB] = LAYOUT_ergodox(
        // left hand
        _______,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  _______,
-       _______,KC_EXLM,KC_AT,  KC_LCBR,KC_RCBR,KC_ASTR,_______,
+       _______,KC_EXLM,KC_AT,  KC_LCBR,KC_RCBR,KC_ASTR,KC_TILD,
        _______,KC_HASH,KC_DLR, KC_LPRN,KC_RPRN,KC_GRV,
-       _______,KC_PERC,KC_CIRC,KC_LBRC,KC_RBRC,KC_TILD,_______,
+       _______,KC_PERC,KC_CIRC,KC_LBRC,KC_RBRC,KC_TILD,KC_PLUS,
        _______,_______,_______,_______,_______,
                                        _______,_______,
                                                _______,
                                _______,_______,_______,
        // right hand
        _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  KC_DEL,
-       _______, KC_LABK, KC_HOME, KC_UP,   KC_PGUP,  KC_ASTR, _______,
+       KC_DQUO, KC_LABK, KC_HOME, KC_UP,   KC_PGUP,  KC_ASTR, _______,
                 KC_RABK, KC_LEFT, KC_DOWN, KC_RIGHT, KC_PLUS, _______,
-       _______, KC_AMPR, KC_END,  KC_DOWN, KC_PGDN,  KC_BSLS, _______,
+       KC_UNDS, KC_AMPR, KC_END,  KC_DOWN, KC_PGDN,  KC_BSLS, _______,
                          _______, _______, _______,  _______, _______,
        _______, _______,
        _______,
@@ -155,6 +156,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _______,  _______, KC_4,    KC_5   , KC_6,    _______, KC_TAB,
                  _______, KC_1,    KC_2   , KC_3,    _______, _______,
        _______,  _______, _______, KC_0,    KC_0,    _______, _______,
+                          _______, _______, _______, _______, _______,
+       _______, _______,
+       _______,
+       _______, _______, _______
+),
+[HC] = LAYOUT_ergodox(
+       _______, _______, _______, _______, _______, _______, _______,
+       KC_NO  , _______, _______, _______, _______, _______, _______,
+       _______, _______, _______, _______, _______, _______,
+       _______, _______, _______, _______, _______, _______, _______,
+       _______, _______, _______, _______, _______,
+                                           _______, _______,
+                                                    _______,
+                                  _______, _______, _______,
+    // right hand
+       _______,  _______, _______, _______, _______, _______, KC_NO  ,
+       _______,  _______, _______, _______, _______, _______, _______,
+                 _______, _______, _______, _______, _______, _______,
+       _______,  _______, _______, _______, _______, _______, _______,
                           _______, _______, _______, _______, _______,
        _______, _______,
        _______,
