@@ -95,34 +95,33 @@ void matrix_scan_user(void) {
 
     switch (layer) {
         case 0:
-            rgblight_setrgb(0,240, 255);
+            rgblight_sethsv(180, 255, 255);
             break;
         case 1:
-            rgblight_setrgb(0,255, 100);
+            rgblight_sethsv(120, 255, 255);
             break;
         case 2:
-            rgblight_setrgb(10,255, 0);
+            rgblight_sethsv(250, 255, 255);
             break;
         case 3:
-            rgblight_setrgb(255,0, 85);
+            rgblight_sethsv(280, 255, 255);
             break;
         case 4:
-            rgblight_setrgb(240,255, 0);
+            rgblight_sethsv(70, 255, 255);
             break;
         default:
             // none
             break;
     }
-    if ( SHIFTDOWN) {
-        rgblight_setrgb(255,255, 255);
-        }
     if ( CTRLDOWN) {
-        rgblight_setrgb(240,255, 0);
+        rgblight_sethsv(75, 255, 255);
         }
     if ( WINDOWN) {
-        rgblight_setrgb(255,255, 255);
+        rgblight_sethsv(30, 255, 255);
         }
-
+    if ( SHIFTDOWN) {
+        rgblight_sethsv(200, 255, 255);
+        }
 
 
 };
