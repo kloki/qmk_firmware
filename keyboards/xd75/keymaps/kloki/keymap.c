@@ -95,7 +95,6 @@ void matrix_scan_user(void) {
 
     switch (layer) {
         case 0:
-<<<<<<< HEAD
             rgblight_sethsv(180, 255, 255);
             break;
         case 1:
@@ -109,27 +108,11 @@ void matrix_scan_user(void) {
             break;
         case 4:
             rgblight_sethsv(70, 255, 255);
-=======
-            rgblight_setrgb(0,240, 255);
-            break;
-        case 1:
-            rgblight_setrgb(0,255, 100);
-            break;
-        case 2:
-            rgblight_setrgb(10,255, 0);
-            break;
-        case 3:
-            rgblight_setrgb(255,0, 85);
-            break;
-        case 4:
-            rgblight_setrgb(240,255, 0);
->>>>>>> upstream/master
             break;
         default:
             // none
             break;
     }
-<<<<<<< HEAD
     if ( CTRLDOWN) {
         rgblight_sethsv(75, 255, 255);
         }
@@ -140,21 +123,6 @@ void matrix_scan_user(void) {
         rgblight_sethsv(200, 255, 255);
         }
 
-
-=======
-    if ( SHIFTDOWN) {
-        rgblight_setrgb(255,255, 255);
-        }
-    if ( CTRLDOWN) {
-        rgblight_setrgb(240,255, 0);
-        }
-    if ( WINDOWN) {
-        rgblight_setrgb(255,255, 255);
-        }
-
-
-
->>>>>>> upstream/master
 };
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
