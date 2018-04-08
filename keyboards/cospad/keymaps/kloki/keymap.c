@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  _______,  TG(_KEYS),_______, \
   _______,  _______,  _______,  _______, \
   RGB_RMOD, _______,  _______,  KC_DEL , \
-  RGB_HUD,  RGB_HUI,  _______,  _______, \
+  _______,  _______,  _______,  _______, \
   RGB_MOD,  _______,  _______,  _______),
 
 [_KEYS] = KEYMAP(
@@ -77,8 +77,14 @@ void matrix_scan_user(void) {
     uint8_t layer = biton32(layer_state);
 
     switch (layer) {
+        case _BASE:
+            rgblight_sethsv(180, 255, 255);
+            break;
+        case _FUNC:
+            rgblight_sethsv(280, 255, 255);
+            break;
         case _KEYS:
-            rgblight_sethsv(240, 255, 255);
+            rgblight_sethsv(70, 255, 255);
             break;
         default:
             // none
