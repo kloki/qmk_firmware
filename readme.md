@@ -1,4 +1,4 @@
-# Mine
+# My layouts
 
 -   [Hotdox76v2 - kloki](/keyboards/hotdox76v2/keymaps/kloki/)
 -   [Planck - kloki](/keyboards/planck/keymaps/kloki/)
