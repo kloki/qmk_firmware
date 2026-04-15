@@ -69,8 +69,8 @@ void render_rgb_helper_fun(uint8_t start_line, const char *data, uint8_t gap_w, 
     uint8_t j = 0, k = 0;
     for (j = 0; j < l; ++j) {      // font index
         for (k = 0; k < 12; ++k) { // font byte index
-            oled_write_raw_byte(pgm_read_byte(&ext_big_font[data[j] - 0x20][k]), start_line * 2 * 128 + gap_w + j * 12 + k);
-            oled_write_raw_byte(pgm_read_byte(&ext_big_font[data[j] - 0x20][12 + k]), start_line * 2 * 128 + 128 + gap_w + j * 12 + k);
+            oled_write_raw_byte(pgm_read_byte(&ext_big_font[pgm_read_byte(&data[j]) - 0x20][k]), start_line * 2 * 128 + gap_w + j * 12 + k);
+            oled_write_raw_byte(pgm_read_byte(&ext_big_font[pgm_read_byte(&data[j]) - 0x20][12 + k]), start_line * 2 * 128 + 128 + gap_w + j * 12 + k);
         }
     }
     for (j = 0; j < gap_w; ++j) {
@@ -83,35 +83,56 @@ void render_rgb_helper_fun(uint8_t start_line, const char *data, uint8_t gap_w, 
 }
 
 void render_rgb_mode(void) {
-    render_rgb_helper_fun(0, "RGB:", 6, 4);
+    render_rgb_helper_fun(0, PSTR("MATRIX:"), 6, 7);
     if (!rgb_matrix_is_enabled()) {
-        render_rgb_helper_fun(1, "OFF    ", 6, 7);
+        render_rgb_helper_fun(1, PSTR("OFF    "), 6, 7);
         return;
     }
     switch (rgb_matrix_get_mode()) {
         case RGB_MATRIX_NONE:
-            render_rgb_helper_fun(1, "OFF    ", 6, 7);
+            render_rgb_helper_fun(1, PSTR("OFF    "), 6, 7);
             break;
         case RGB_MATRIX_SOLID_COLOR:
-            render_rgb_helper_fun(1, "SOLID  ", 6, 7);
+            render_rgb_helper_fun(1, PSTR("SOLID  "), 6, 7);
+            break;
+        case RGB_MATRIX_GRADIENT_UP_DOWN:
+            render_rgb_helper_fun(1, PSTR("GRDNT  "), 6, 7);
             break;
         case RGB_MATRIX_BREATHING:
-            render_rgb_helper_fun(1, "BREATH ", 6, 7);
+            render_rgb_helper_fun(1, PSTR("BREATH "), 6, 7);
             break;
-        case RGB_MATRIX_CYCLE_ALL:
-            render_rgb_helper_fun(1, "CYC ALL", 6, 7);
+        case RGB_MATRIX_HUE_WAVE:
+            render_rgb_helper_fun(1, PSTR("WAVE   "), 6, 7);
             break;
         case RGB_MATRIX_CYCLE_LEFT_RIGHT:
-            render_rgb_helper_fun(1, "CYC LR ", 6, 7);
+            render_rgb_helper_fun(1, PSTR("L/R    "), 6, 7);
+            break;
+        case RGB_MATRIX_CYCLE_OUT_IN:
+            render_rgb_helper_fun(1, PSTR("IN/OUT "), 6, 7);
+            break;
+        case RGB_MATRIX_CYCLE_SPIRAL:
+            render_rgb_helper_fun(1, PSTR("SPIRAL "), 6, 7);
             break;
         case RGB_MATRIX_RAINBOW_BEACON:
-            render_rgb_helper_fun(1, "RAINBOW", 6, 7);
+            render_rgb_helper_fun(1, PSTR("RAINBOW"), 6, 7);
+            break;
+        case RGB_MATRIX_RAINDROPS:
+            render_rgb_helper_fun(1, PSTR("RAIN   "), 6, 7);
+            break;
+        case RGB_MATRIX_PIXEL_FRACTAL:
+            render_rgb_helper_fun(1, PSTR("PIXEL  "), 6, 7);
             break;
         case RGB_MATRIX_TYPING_HEATMAP:
-            render_rgb_helper_fun(1, "HEATMAP", 6, 7);
+            render_rgb_helper_fun(1, PSTR("HEATMAP"), 6, 7);
+            break;
+        case RGB_MATRIX_STARLIGHT_SMOOTH:
+            render_rgb_helper_fun(1, PSTR("STARTS "), 6, 7);
+            break;
+        case RGB_MATRIX_RIVERFLOW:
+            render_rgb_helper_fun(1, PSTR("RIVER  "), 6, 7);
             break;
         default:
-            render_rgb_helper_fun(1, "OTHER  ", 6, 7);
+            render_rgb_helper_fun(1, PSTR("OTHER  "), 6, 7);
             break;
     }
 }

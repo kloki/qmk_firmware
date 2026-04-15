@@ -17,11 +17,18 @@
     },
     "rgb_matrix": {
         "animations": {
+            "gradient_up_down": true,
             "breathing": true,
-            "cycle_all": true,
+            "hue_wave": true,
             "cycle_left_right": true,
+            "cycle_out_in": true,
+            "cycle_spiral": true,
             "rainbow_beacon": true,
-            "typing_heatmap": true
+            "raindrops": true,
+            "pixel_fractal": true,
+            "typing_heatmap": true,
+            "starlight_smooth": true,
+            "riverflow": true
         },
         "center_point": [112, 32],
         "driver": "ws2812",
