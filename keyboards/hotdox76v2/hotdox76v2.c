@@ -126,7 +126,7 @@ void render_rgb_mode(void) {
             render_rgb_helper_fun(1, PSTR("HEATMAP"), 6, 7);
             break;
         case RGB_MATRIX_STARLIGHT_SMOOTH:
-            render_rgb_helper_fun(1, PSTR("STARTS "), 6, 7);
+            render_rgb_helper_fun(1, PSTR("STARS  "), 6, 7);
             break;
         case RGB_MATRIX_RIVERFLOW:
             render_rgb_helper_fun(1, PSTR("RIVER  "), 6, 7);
