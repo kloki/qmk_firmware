@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_WM] = LAYOUT_ortho_5x15( /* WORKMAN */
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,           TG(_QW), KC_HOME,MO(_FN),           KC_6,    KC_7,    KC_8,   KC_9,    KC_0,    KC_BSPC,
-        KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,           KC_GRAVE,KC_END, KC_QUOT,           KC_J,    KC_F,    KC_U,   KC_P,    KC_SCLN, KC_QUOT,
+        KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,           KC_GRAVE,KC_END, KC_QUOT,           KC_J,    KC_F,    KC_U,   KC_P,    KC_SCLN, KC_BACKSLASH,
  LCTL_T(KC_ESC), KC_A,    KC_S,    KC_H,    KC_T,    KC_G,           KC_EQL,  KC_UP,  KC_MINS,           KC_Y,    KC_N,    KC_E,   KC_O,    KC_I,    KC_ENT,
         KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,           KC_LEFT, KC_DOWN,KC_RIGHT,          KC_K,    KC_L,    KC_COMM,KC_DOT,  KC_SLSH, KC_QUOT,
         KC_LCTL, KC_LGUI, KC_LALT, KC_LEFT, KC_RIGHT,LT(_SYM,KC_SPC),LGUI_T(KC_ENTER),  KC_QUOT,LT(_SYM,KC_TAB), KC_BSPC, KC_DOWN, KC_UP,  KC_LBRC, KC_RBRC, MO(_SYM)
